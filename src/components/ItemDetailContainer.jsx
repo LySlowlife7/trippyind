@@ -21,7 +21,7 @@ const ItemDetailContainer = () => {
 
   return (
     <div>
-      <h1>ItemDetailContainer</h1>
+      <h1>Trippy Ind</h1>
       {product ? (
         <div>
           <h3>{product.name}</h3>
