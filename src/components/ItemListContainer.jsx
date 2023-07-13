@@ -1,21 +1,36 @@
-import React, { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import './ItemListContainer.css'; 
 
 const ItemListContainer = () => {
-  const { id } = useParams();
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    if (id) {
-      console.log('Category ID:', id);
-    } else {
-      console.log('Home page');
-    }
-  }, [id]);
+    const fetchProducts = async () => {
+      try {
+        const response = await axios.get('https://64af5037c85640541d4e42ea.mockapi.io/products');
+        setProducts(response.data);
+      } catch (error) {
+        console.log('Error fetching products:', error);
+      }
+    };
+
+    fetchProducts();
+  }, []);
 
   return (
     <div>
       <h1>Trippy Ind</h1>
-      {/* Mostrar los productos */}
+      <div className="product-list">
+        {products.map((product) => (
+          <div key={product.id} className="product-card">
+            <h3>{product.name}</h3>
+            <p>{product.description}</p>
+            <p>Price: ${product.price}</p>
+            <img src={product.image} alt={product.name} />
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

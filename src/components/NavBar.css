@@ -1,53 +1,52 @@
 .navbar {
-    background-color: blueviolet;
-    display: flex;
-    justify-content: space-between;
+  background-color: blueviolet;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar h1 {
+  margin-right: auto;
+  color: white;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar li {
+  margin-right: 20px;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+}
+.navbar .start {
+  margin-right: auto;
+}
+/* Media queries para diseño responsivo */
+@media screen and (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
     align-items: center;
-    padding: 10px;
   }
-  
-  .logo h1 {
-    color: white;
-    font-size: 50px;
-    font-weight: bold;
-    margin: 0;
-    text-align: center;
-  }
-  
 
+  .navbar ul {
+    flex-direction: column;
+  }
 
-  .nav-links {
-    list-style: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
+  .navbar li {
+    margin-right: 0;
+    margin-bottom: 10px;
   }
-  
-  .nav-links li {
-    margin-right: 10px;
-  }
-  
-  .nav-links a {
-    color: white;
-    text-decoration: none;
-  }
-  
-  /* Estilos para hacer la barra de navegación responsive */
-  @media screen and (max-width: 768px) {
-    .navbar {
-      flex-direction: column;
-    }
-  
-    .logo {
-      margin-bottom: 10px;
-    }
-  
-    .nav-links {
-      flex-direction: column;
-    }
-  
-    .nav-links li {
-      margin-right: 0;
-      margin-bottom: 5px;
-    }
-  }
+}
